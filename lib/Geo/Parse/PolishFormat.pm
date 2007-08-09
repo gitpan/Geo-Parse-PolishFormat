@@ -6,7 +6,7 @@ use warnings;
 
 use Data::Dumper;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
 
@@ -93,7 +93,7 @@ sub parse {
 				
 			$attributes -> {$key} = $value;
 				
-			if ($key =~ /(\w+)(\d+)/) {
+			if ($key =~ /([A-Za-z_]+)(\d+)$/) {
 				$collections -> {$1} ||= [];
 				$collections -> {$1} -> [$2] = $value;
 			}
